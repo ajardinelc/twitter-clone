@@ -1,10 +1,14 @@
-/*
+/*********************
 Common
 *********************/
 
 html, body{
     height: 100%;
+    font-family: sans-serif;
+}
 
+.twittericon{
+    border-radius: 50%;
 }
 
 .content {
@@ -16,7 +20,7 @@ html, body{
 }
  
 
-/*
+/*************************
 Post
 *************************/
 
@@ -25,32 +29,75 @@ Post
     border-bottom: 1px solid #ccc;   
 }
 
-.post_form input {
+.header img{
+    width: 50px;
+    margin: 0px 20px;
+}
+
+.post_form .text {
     width: 70%;
     margin-bottom: 10px;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid white;
+    border-radius: 9px;
+    background: #e6fef7;
 }
 
-/* now set the width for teaxarea */
+.post_form .file {
+    /* width: 47%; */
+    margin-bottom: 10px;
+    /* padding: 10px; */
+    border: 1px solid #cccccc;
+    margin: 13px 90px 16px 4px;
+}
 
-.post_form textarea{
+.post_form .line {
+    border-top: 1px solid #ccc;
+    width: 73%;
+    margin-left: 63px;
+}
+
+/* now set the width for textarea */
+
+.post_form textarea {
     width: 70%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid white;
 }
 
-.posts ul{
+button.tweet {
+    width: 80px;
+    color: white;
+    background-color: rgb(29, 161, 242);
+    border: 0;
+    padding: 13px;
+    border-radius: 10px;
+}
+
+.userimg img {
+    width: 60px;
+    float: left;
+    right: 26px;
+    position: relative;
+
+}
+
+.posts ul {
     padding: 0;
 }
 
 .posts li {
     position: relative; 
-    display: flex;
+    text-decoration: none;
     border-bottom: 1px solid #ccc;
     padding: 17px;
 }
-
+.header {
+    display: flex;
+    gap: 5px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 7px;
+}
 /* this is to change the option.png image size */
 .posts li .menu_icon{
     width: 20px;
@@ -70,23 +117,27 @@ Post
     font-size: 13px;
     border-radius: 3px;
 }
-
+.posts li .logo-user {
+    display: flex;
+}
 /* deleting underline from link */
-.posts li .menu a{
+.posts li .menu a {
     text-decoration: none;
 }
 
 .posts li .logo{
-    flex-basis: 15%;
+    margin-right:10px;
 }
 
 .posts li .logo img{
-    width: 60%;
+    width: 60px;
+    margin-right: 16px;
 }
 
 .posts li .name_body{
     flex-basis: 85%;
 }
+
 
 .posts li .name_body .name{
     font-weight: bold;
@@ -104,4 +155,43 @@ Post
         font-size: 20px;
 
     }
+}
+
+/****************************
+Edit
+****************************/
+
+button.update {
+    width: 80px;
+    color: white;
+    background-color: rgb(29, 161, 242);
+    border: 0;
+    padding: 13px;
+    border-radius: 10px;
+}
+
+.post_form a {
+    width: 80px;
+    color: white;
+    background-color: rgb(73, 73, 73);
+    border: 0;
+    padding: 13px;
+    border-radius: 10px;
+}
+
+.input_field {
+    display: flex;
+}
+
+.like-button {
+    display: flex;
+    width: 50px;
+    margin-top: 40px;
+
+}
+.like-button img {
+    width:100%
+}
+.post-img{
+    border-radius:20px;
 }

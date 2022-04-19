@@ -1,18 +1,27 @@
-{% extends "base.html" %}
-
-{% block content %}
-{% load static %}
+{% extends "base.html" %} {% block content %} {% load static %}
 
 <!--remember to load this static for image-->
-{% load static %}
+
+
 <section class ="content">
+    <div class="header">
+        {% load static %}
+        <img src="/static/img/twittericon.jpg" alt="">
+        <h3>Home</h3>
+    </div>
     <section class="post_form">
         <form action="/" method="POST" enctype="multipart/form-data">
             <!--Never forget to add ssrf token-->
             {% csrf_token %}
-           <input type="text" name="name" placeholder="Name" required>
-           <textarea  name="body" placeholder="Tell us anything" required></textarea>
-           <input type="submit" value="Post" />
+            <div class="userimg">
+                <img src="{%static 'img/usericon.png' %}" />
+
+            </div>
+           <input class="text" type="text" name="name" placeholder="Your name" id='Name'required>
+           <textarea  name="body" placeholder="What's happening?" required></textarea>
+           <div class="line">
+           <input class="file" type="file"value='Choose File'name='image'>
+           <button class="tweet">Tweet</button></div>
 
 
         </form> 
@@ -24,42 +33,50 @@
         <ul>
 
             {% for post in posts %}
-        <li>
-            <img class="menu_icon js-menu-icon" src="{% static 'img/menuicon.png'%}" />
-            
-            <div class="menu">
-                <a href="/delete/{{ post.id }}">Delete</a>
-            </div> 
-
-            <div class="logo">
-                <img src="{%static 'img/usericon.png' %}" />
+            <li>
+                <img class="menu_icon js-menu-icon" src="{% static 'img/menuicon.png'%}" />
                 
-            </div>
-
-            <div class="name_body">
-
-            <div class=name>{{ post.name }} </div>
-            <div class="datetime">
-            {{ post.created_at }} 
-        </div>
-
-        <p>
-            {{ post.body }}
-        </p>
-        <!-- <a href="/delete/{{ post.id}}/">delete</a>  -->
-
-
-            </div>
+                <div class="menu">
+                    <a href="/delete/{{ post.id }}/">Delete</a>
+                    <a href="/edit/{{ post.id }}/">Edit</a>
+                </div> 
             
-        </li>
+                <div class="logo-user">
+
+                    <div class="logo">
+                        <img src="{%static 'img/usericon.png' %}" />
+                        
+                    </div>
+
+                    <div class="name_body">
+
+                        <div class=name>{{ post.name }} </div>
+                        <div class="datetime">{{ post.created_at }} </div>
+
+                        
+                        <p>{{ post.body }}</p>
+                        {%if post.image.url %}
+                        <img class='post-img' src="{{post.image.url}}" style="width:60%" />
+                        {% endif %}
+                        <div class="like-button"><a href="/like/{{ post.id }}/"><img src="{% static 'img/like.png' %}" alt="" class="like-img" style="width:60%"></a>
+                            <span class="like-count">{{post.likes}}</span>
+                        </div>
+
+
+                    </div>
+                </div>
+                
+
+                
+            </li>
             {% endfor %}
 
         </ul>
         {% endif %}
 
     </section>
-<!-- Go to jquerry click on CDN go to core 3.06 click on uncompressed copy paste here -->
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="{% static 'js/posts.js' %}"></script>
 
 </section>

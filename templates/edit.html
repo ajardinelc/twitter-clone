@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+
+<!--remember to load this static for image-->
+{% load static %}
+
+<section class ="content">
+    <div class="header">
+        <img src="/static/img/twittericon.jpg" alt="">
+        <h3>Edit</h3>
+    </div>
+    <section class="post_form">
+        <form action="/edit/{{ post.id }}/" method="POST" enctype="multipart/form-data">
+            <!--Never forget to add ssrf token-->
+            {% csrf_token %}
+            <div class="userimg">
+                <img src="{%static 'img/usericon.png' %}" />
+
+            </div>
+           <input class="text" type="text" name="name" value="{{ post.name }}" id='Name'required>
+           <textarea  name="body" required>{{ post.body }}</textarea>
+           {% if post.image.url %}
+                    <img src="{{post.image.url}}" alt ="image" style="width: 250px;height: 200px;">
+           {% endif %}
+           <div class = "input-field">
+            <input class="file" type="file"value='Choose File'name='image'>
+            <button class="update" type="submit">Update</button>
+            <a href="/" class="cancel" type="submit">Cancel</a>
+
+           </div>
+           
+        </form> 
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="{% static 'js/posts.js' %}"></script>
+
+    {% endblock %}
