@@ -3,8 +3,9 @@ Common
 *********************/
 
 html, body{
-    height: 100%;
+    height: fit-content;
     font-family: sans-serif;
+
 }
 
 .twittericon{
@@ -87,10 +88,11 @@ button.tweet {
 }
 
 .posts li {
-    position: relative; 
+    position: relative;
     text-decoration: none;
     border-bottom: 1px solid #ccc;
     padding: 17px;
+    list-style-type: none;
 }
 .header {
     display: flex;
@@ -148,6 +150,10 @@ button.tweet {
 
 }
 
+.post_form .edit-input{
+    margin-left:12%;
+}
+
 /* changing media  in mobile view*/
 
 @media screen and (max-width: 500px){
@@ -156,6 +162,8 @@ button.tweet {
 
     }
 }
+
+
 
 /****************************
 Edit

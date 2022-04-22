@@ -19,17 +19,20 @@
                 <img src="{%static 'img/usericon.png' %}" />
 
             </div>
-           <input class="text" type="text" name="name" value="{{ post.name }}" id='Name'required>
-           <textarea  name="body" required>{{ post.body }}</textarea>
-           {% if post.image.url %}
-                    <img src="{{post.image.url}}" alt ="image" style="width: 250px;height: 200px;">
-           {% endif %}
-           <div class = "input-field">
-            <input class="file" type="file"value='Choose File'name='image'>
-            <button class="update" type="submit">Update</button>
-            <a href="/" class="cancel" type="submit">Cancel</a>
+            
+            
+                <input class="text" type="text" name="name" value="{{ post.name }}" id='Name'required>
+                <textarea  name="body" required>{{ post.body }}</textarea>
+            <div class="edit-input">
+                {% if post.image.url %}
+                            <img src="{{post.image.url}}" alt ="image" style="width: 250px;height: 250px;">
+                {% endif %}
+                        <input class="file" type="file"value='Choose File'name='image'><br />
+                        <button class="update" type="submit">Update</button>
+                        <a href="/" class="cancel" type="submit">Cancel</a>
+            </div>
 
-           </div>
+           
            
         </form> 
     </section>
